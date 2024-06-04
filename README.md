@@ -8,7 +8,7 @@ Interesting code:
 
 - The 'Path filePath' is interesting because it converts the fileName string into a path. 'filePath().getParent()' returns the parent directory which is 'receipts' and 'Files.createDirectories()' creates the directory. This section of code ensures the directory where the receipt file will be saved sexists before attempting to write to the file.
 
-- Images of screens:
+Images of screens:
 
 <img width="323" alt="Screenshot 2024-06-04 at 8 19 58 AM" src="https://github.com/Erikarod27/DELI-cious/assets/113813867/2a7bddbd-8ba2-479c-be97-e5a7b9f93901">
 
