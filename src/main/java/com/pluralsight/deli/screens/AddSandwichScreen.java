@@ -1,6 +1,7 @@
 package com.pluralsight.deli.screens;
 
 import com.pluralsight.deli.Items.Bread;
+import com.pluralsight.deli.Items.Order;
 import com.pluralsight.deli.Items.Sandwich;
 import com.pluralsight.deli.Items.Topping;
 
@@ -10,23 +11,24 @@ public class AddSandwichScreen {
     //Instance variables
     private Scanner scanner;
     private Sandwich sandwich = new Sandwich();
+    private Order order = new Order();
 
-    //Add sandwich screen method
+    //Add sandwich screen constructor method
     public AddSandwichScreen() {
         this.scanner = new Scanner(System.in);
     }
 
     //Display method for add sandwich screen
     public void display() {
-        System.out.println("Add Sandwich");
+        System.out.println("---- Add Sandwich ----");
         System.out.println("+ Bread");
         System.out.println("+ Size");
         System.out.println("+ Toppings");
         System.out.println("+ Sauces");
         System.out.println("+ Toasting");
-        System.out.println("1) Add");
+        System.out.println("1) Continue");
         System.out.println("0) Cancel");
-        System.out.print("Choice: ");
+        System.out.print("Enter: ");
         handleInput();
     }
 
@@ -43,7 +45,7 @@ public class AddSandwichScreen {
                     System.out.println("Cancelling...");
                     break;
                 default:
-                    System.out.println("Invalid choice");
+                    System.out.println("Invalid entry");
                     return;
             }
         }
@@ -56,7 +58,7 @@ public class AddSandwichScreen {
         System.out.println("2) Wheat");
         System.out.println("3) Rye");
         System.out.println("4) Wrap");
-        System.out.print("Choice: ");
+        System.out.print("Enter: ");
         int choice = scanner.nextInt();
         switch (choice) {
             case 1:
@@ -72,7 +74,7 @@ public class AddSandwichScreen {
                 sandwich.setBread(new Bread("Wrap"));
                 break;
             default:
-                System.out.println("Invalid choice");
+                System.out.println("Invalid entry");
                 return;
         }
         sandwich.printBread();
@@ -85,7 +87,7 @@ public class AddSandwichScreen {
         System.out.println("1) 4\" Small");
         System.out.println("2) 8\" Medium");
         System.out.println("3) 12\" Large");
-        System.out.print("Choice: ");
+        System.out.print("Enter: ");
         int choice = scanner.nextInt();
         String breadSize;
         switch (choice) {
@@ -102,10 +104,10 @@ public class AddSandwichScreen {
                 breadSize = "Large 12\"";
                 break;
             default:
-                System.out.println("Invalid choice");
+                System.out.println("Invalid entry");
                 return;
         }
-        System.out.println("Size : " + breadSize);
+        System.out.println("Size: " + breadSize);
         selectToppings();
         }
 
@@ -125,7 +127,7 @@ public class AddSandwichScreen {
         System.out.println("5) Chicken");
         System.out.println("6) Bacon");
         System.out.println("7) No Meat");
-        System.out.print("Choice: ");
+        System.out.print("Enter: ");
         int choice = scanner.nextInt();
         Topping selectedMeat = null;
         switch(choice) {
@@ -151,7 +153,7 @@ public class AddSandwichScreen {
                 selectedMeat = Topping.NONE;
                 break;
             default:
-                System.out.println("Invalid choice");
+                System.out.println("Invalid entry");
                 return;
         }
         sandwich.setMeat(selectedMeat);
@@ -174,7 +176,7 @@ public class AddSandwichScreen {
         System.out.println("3) Cheddar");
         System.out.println("4) Swiss");
         System.out.println("5) No Cheese");
-        System.out.print("Choice: ");
+        System.out.print("Enter: ");
         int choice = scanner.nextInt();
         Topping selectedCheese = null;
         switch(choice) {
@@ -194,7 +196,7 @@ public class AddSandwichScreen {
                 selectedCheese = Topping.NONE;
                 break;
             default:
-                System.out.println("Invalid choice");
+                System.out.println("Invalid entry");
                 return;
         }
         sandwich.setCheese(selectedCheese);
@@ -224,7 +226,7 @@ public class AddSandwichScreen {
         System.out.println("0) Done");
         boolean done = false;
         while (!done) {
-            System.out.print("Choice: ");
+            System.out.print("Enter: ");
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
@@ -258,7 +260,7 @@ public class AddSandwichScreen {
                     done = true;
                     break;
                 default:
-                    System.out.println("Invalid choice");
+                    System.out.println("Invalid entry");
             }
         }
         sandwich.printVeggies();
@@ -277,7 +279,7 @@ public class AddSandwichScreen {
         System.out.println("0) Done");
         boolean done = false;
         while (!done) {
-            System.out.print("Choice: ");
+            System.out.print("Enter: ");
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
@@ -302,7 +304,7 @@ public class AddSandwichScreen {
                     done = true;
                     break;
                 default:
-                    System.out.println("Invalid choice");
+                    System.out.println("Invalid entry");
                     return;
             }
         }
@@ -316,6 +318,7 @@ public class AddSandwichScreen {
         String toasting = scanner.next();
         sandwich.setToasted(toasting.equalsIgnoreCase("y"));
         System.out.println("Toasted: " + (sandwich.isToasted() ? "Yes" : "No"));
+        order.addSandwich(sandwich);
         confirmOrder();
     }
 
@@ -327,7 +330,7 @@ public class AddSandwichScreen {
         System.out.println("3) Add drink");
         System.out.println("4) Checkout");
         System.out.println("0) Cancel");
-        System.out.print("Choice: ");
+        System.out.print("Enter: ");
         int choice = scanner.nextInt();
         switch (choice) {
             case 1:
@@ -344,13 +347,14 @@ public class AddSandwichScreen {
                 break;
             case 4:
                 CheckoutScreen checkoutScreen = new CheckoutScreen();
+
                 checkoutScreen.display();
                 break;
             case 0:
                 System.out.println("Cancelling...");
                 break;
             default:
-                System.out.println("Invalid choice");
+                System.out.println("Invalid entry");
                 confirmOrder();
                 break;
         }

@@ -2,9 +2,7 @@ package com.pluralsight.deli.Items;
 
 public class Drink {
     //Size enum
-    public enum Size {
-        Small, Medium, Large
-    }
+    public enum Size { Small, Medium, Large}
     //Instance variables
     private Size size;
     private String type;
@@ -18,7 +16,7 @@ public class Drink {
         calculatePrice();
     }
 
-    //Getters and setters for drink obejct
+    //Getters and setters
     public Size getSize() {
         return size;
     }
@@ -59,9 +57,7 @@ public class Drink {
     //Override drink toString method
     @Override
     public String toString() {
-        return "Drink\n" +
-                "Size: " + size +
-                "\nType: " + type +
-                "\nPrice: " + price;
+        return "   [" + size + " " + type + "]\n" +
+                "PRICE: $" + price;
     }
 }

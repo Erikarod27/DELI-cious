@@ -3,7 +3,7 @@ package com.pluralsight.deli.Items;
 public class Chips {
     //Instance variables
     private String type;
-    private double price;
+    private double price = 1.5;
 
     //Chip object constructors
     public Chips() {}
@@ -34,6 +34,7 @@ public class Chips {
     //Override chips toString method
     @Override
     public String toString() {
-        return "Chips\n" + "Type: " + type;
+        return  "   [" + type + "]\n" +
+                "PRICE $" + price + "\n";
     }
 }

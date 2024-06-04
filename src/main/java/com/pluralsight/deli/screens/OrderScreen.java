@@ -29,12 +29,7 @@ public class OrderScreen {
         System.out.println("3) Add Chips");
         System.out.println("4) Checkout");
         System.out.println("0) Cancel Order");
-        System.out.print("Choice: ");
-        handleInput();
-    }
-
-    //Handle input method to display next screen of users choice
-    public void handleInput() {
+        System.out.print("Enter: ");
         boolean exit = false;
         scanner = new Scanner(System.in);
         while (!exit) {
@@ -57,7 +52,7 @@ public class OrderScreen {
                     System.out.println("Order cancelled.");
                     break;
                 default:
-                    System.out.println("Invalid choice.");
+                    System.out.println("Invalid entry");
             }
         }
     }
@@ -85,7 +80,8 @@ public class OrderScreen {
 
     //Checkout method that displays checkout screen
     private void checkout() {
-        CheckoutScreen checkoutScreen = new CheckoutScreen();
+        Order order = new Order(sandwiches, drinks, chips);
+        CheckoutScreen checkoutScreen = new CheckoutScreen(order);
         checkoutScreen.display();
     }
 }

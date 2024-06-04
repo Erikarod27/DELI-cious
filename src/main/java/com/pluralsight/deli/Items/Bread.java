@@ -20,7 +20,7 @@ public class Bread {
     //Override bread toString method
     @Override
     public String toString() {
-        return "Bread: " + type;
+        return type ;
     }
 
 }

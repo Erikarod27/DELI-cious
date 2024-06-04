@@ -1,0 +1,15 @@
+Order
+----------------------
+Sandwiches
+- BREAD 
+   [Small White (Toasted: false)]
+- MEAT 
+   [STEAK (Extra: false)]
+- CHEESE 
+   [AMERICAN (Extra: false)]
+- VEGGIES 
+   [LETTUCE]
+- SAUCES 
+   []
+PRICE: $7.25
+--- TOTAL PRICE: $7.25 ---
